@@ -10,15 +10,24 @@
   font-size: 62.5%;
 
   --ff-primary: 'Poppins', sans-serif;
-  --text-color: #303030;
+  --text-color: #FFFFFF;
 
   --hue: 194;
-  --primary-color: hsl(var(--hue), 100%, 63%)
+  --Thead-color: #092D38;
+  --bg-color: #06181C;
+
+  --bg-toogle: #FFFFFF;
+
+  --bg-tr-odd: #06181C;
+  --bg-tr-even: #4A808C;
+
+  --button-search: #4A808C;
 }
 
 body {
   font-size: 1.6rem;
   color: var(--text-color);
+  background-color: var(--bg-color);
 }
 
 body * {
@@ -37,9 +46,43 @@ body * {
   border: 0;
 }
 
+html.ligth {
+  --text-color: #303030;
+  --bg-color: hsl(var(--hue), 40%, 98%);
+
+  --bg-tr-odd: #ddd;
+  --bg-tr-even: #eee;
+
+  --Thead-color: hsl(var(--hue), 100%, 63%);
+  --bg-toogle: #000000;
+  --button-search: hsl(var(--hue), 100%, 63%);
+}
+
+#toggle-mode {
+  position: absolute;
+  top: 2.9rem;
+  right: 2.5rem;
+
+  font-size: 3.2rem;
+  line-height: 0;
+
+  background: transparent;
+  border: 0;
+
+  cursor: pointer;
+  color: var(--bg-toogle);
+}
+
+html.ligth .ph-sun,
+html.ligth .Gitfav-white,
+html:not(.ligth) .ph-moon,
+html:not(.ligth) .Gitfav-black {
+  display: none;
+}
+
 #app {
   padding: 2rem;
-  max-width: 500px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
@@ -48,32 +91,32 @@ header {
   align-items: center;
   justify-content: space-between;
 
-  margin: 2.5rem 0;
-}
-
-header h1 {
-  font-size: 2rem;
-  text-transform: uppercase;
+  margin: 2.5rem 0 8.7rem;
 }
 
 .search {
   display: flex;
   align-items: center;
+
 }
 
 .search input {
-  height: 3.2rem;
+  height: 4.8rem;
   border: 1px solid #CCC;
   border-radius: .4rem 0 0 .4rem;
-  padding: 0 .8rem;
+  width: 47rem;
 }
 
 .search button {
-  background-color: var(--primary-color);
+  background-color: var(--button-search);
   border-radius: 0 .4rem .4rem 0;
-  height: 3.2rem;
+  height: 4.8rem;
   border: none;
-  padding: 0 1rem;
+
+  display: flex;
+  align-items: center;
+  padding: 1rem 3.2rem;
+  gap: .8rem;
   cursor: pointer;
 }
 
@@ -81,12 +124,27 @@ header h1 {
   filter: brightness(1.1);
 }
 
+.table-container {
+  max-height: 69rem;
+  overflow-y: auto;
+}
+
+.table-container::-webkit-scrollbar {
+  width: .6rem;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #224e57;
+}
+
 table {
   width: 100%;
+  border-collapse: collapse;
   /* Serve para fazer algo semelhante ao mesclar no excel */
   border-collapse: collapse;
+  border: 1px solid var(--bg-tr-even);
 
-  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3)
+  box-shadow: 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
 }
 
 table * {
@@ -95,7 +153,7 @@ table * {
 }
 
 table th {
-  background-color: var(--primary-color);
+  background-color: var(--Thead-color);
   text-align: left;
   font-weight: normal;
   padding: 1.5rem;
@@ -111,12 +169,12 @@ table th:last-child {
 
 table tr:nth-child(odd) {
   /*Tudo que for impar*/
-  background-color: #ddd;
+  background-color: var(--bg-tr-odd);
 }
 
 table tr:nth-child(even) {
   /*Tudo que for par*/
-  background-color: #eee;
+  background-color: var(--bg-tr-even);
 }
 
 table td {
@@ -149,8 +207,9 @@ td.user img {
 td .remove {
   background: none;
   border: none;
+  font-weight: bold;
 
-  color: red;
+  color: #F75A68;
 
   cursor: pointer;
 }

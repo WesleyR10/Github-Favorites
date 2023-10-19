@@ -108,7 +108,7 @@ export class FavoritesView extends Favorites {
         ${user.followers}
       </td>
       <td>
-        <button class="remove">&times;</button>
+        <button class="remove">Remover</button>
       </td>
     `
     return tr
